@@ -26,6 +26,20 @@ function _clone_repo_into_dir(url::AbstractString, repo_dir)
     return repo_dir
 end
 
+  
+   
+    You can additionally include earlier versions your package is compatible with
+
+
+function _comment_guide()
+    result = string("\n\n",
+                    "Note: If your package works for the current version `x.y.z` of a dependency `foo`, ",
+                    "then a compat entry `foo = x.y.z` implies the right compatibility upper bound ",
+                    "for packages following semver. ",
+                    "See [https://julialang.github.io/Pkg.jl/v1/compatibility/.] for details.")
+    return result
+end
+      
 function _comment_disclaimer()
     result = string("\n\n",
                     "Note that the guidelines are only required for the pull request ",
